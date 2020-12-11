@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "d9230176-2e08-4acb-8d1a-f2570b63052b",
+		"name": "LibraryManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Book-Management",
+			"item": [
+				{
+					"name": "GetBookByID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5a72c730-3507-46a8-884a-45a699f26c6a",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/books-management/bookByID/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"books-management",
+								"bookByID",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllBooks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ed83591c-b583-4c0c-b69b-2c693a296fd3",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/books-management/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"books-management",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBookByName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0a2a1249-4071-4fc2-84f5-3c40e5b8adda",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/books-management/bookByName/Book1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"books-management",
+								"bookByName",
+								"Book1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c79a496a-ccdf-4c12-a80d-4a3f6a3a798b",
+								"exec": [
+									"// Status Code",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responseBody).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookId\": 13,\n    \"bookName\": \"Book10\",\n    \"authorName\": \"Author10\",\n    \"totalCopies\": 10,\n    \"availableCopies\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/books-management/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"books-management",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "808b01cf-1c98-434a-8872-ebaf98d045d1",
+								"exec": [
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responseBody).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/books-management/remove/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"books-management",
+								"remove",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IssueBook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a8463fae-3b5b-4139-b372-fc4f78fcbcc5",
+								"exec": [
+									"// Status Code",
+									"tests[\"Status code is 202\"] = responseCode.code === 202;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responseBody).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/books-management/issue/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"books-management",
+								"issue",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReturnBook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad67b110-685e-4dbe-a034-9af5d1c1e20b",
+								"exec": [
+									"// Status Code",
+									"tests[\"Status code is 202\"] = responseCode.code === 202;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responseBody).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/books-management/return/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"books-management",
+								"return",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Subscription-Management",
+			"item": [
+				{
+					"name": "GetAllSubscriptions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4456e7ef-3e86-45bc-a2c5-cfa3e98d1cc5",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/subscription-management/subscriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"subscription-management",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GeSsubscriptionByID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "26fbbd9f-dfe9-4452-be03-cba4fdfd4390",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/subscription-management/subscriptionByID/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"subscription-management",
+								"subscriptionByID",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSubscriptionByMemberID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "092677da-b65a-4827-b6c9-5b5f26bcff9c",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/subscription-management/subscriptionByMemberID/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"subscription-management",
+								"subscriptionByMemberID",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetClosedSubscriptions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c13a6bea-04fa-4e7e-91ad-9ba97071466b",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/subscription-management/closedSubscriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"subscription-management",
+								"closedSubscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOpenSubscriptions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d7a77d7f-8ef6-4048-a713-c47e83986df4",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/subscription-management/openSubscriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"subscription-management",
+								"openSubscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllMembers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "73b3446e-5b1e-45bc-90be-e7b9ee9364b8",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/member-management/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"member-management",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMemberByID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5b1a7f5-c317-4bd2-baaa-e1961cc8e59b",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/member-management/memberByID/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"member-management",
+								"memberByID",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMemberByName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4d6edc6e-8d24-4af5-a117-74ec5717582d",
+								"exec": [
+									"// Grab JSON Response",
+									"var responsePayload = JSON.parse(responseBody);",
+									"",
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = Object.keys(responsePayload).length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/member-management/memberByName/Member1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"member-management",
+								"memberByName",
+								"Member1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddMember",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f0acea60-ef0d-499d-ba97-14b1f9ec41b3",
+								"exec": [
+									"// Status Code",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"tests[\"Response payload is not empty\"] = responseBody.length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"memberId\": 10,\n    \"memberName\": \"Member1\",\n    \"membershipStartDate\": \"2020-12-02T18:30:00.000+00:00\",\n    \"membershipStatus\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/member-management/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"member-management",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TerminateMembership",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f2eb65ad-d851-487c-b290-cee23674a070",
+								"exec": [
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = responseBody.length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/member-management/terminate/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"member-management",
+								"terminate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReissueMembership",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "419aaabf-300e-4723-b07e-9a6afcf733c2",
+								"exec": [
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = responseBody.length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/member-management/reissue/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"member-management",
+								"reissue",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubscribeBook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66b57169-7055-4804-bea3-a0a43d7458ad",
+								"exec": [
+									"// Status Code",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"tests[\"Response payload is not empty\"] = responseBody.length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"subscriptionId\": 4,\n        \"subscriptionDate\": \"2020-12-02T18:30:00.000+00:00\",\n        \"returnDate\": null,\n        \"bookReturned\": false,\n        \"bookId\": 1,\n        \"memberId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/subscription-management/subscribe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"subscription-management",
+								"subscribe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EndSubscription",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "654dc8df-8924-4743-85d5-1f861dbb8301",
+								"exec": [
+									"// Status Code",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Response payload is not empty\"] = responseBody.length > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/subscription-management/endSubscription/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"subscription-management",
+								"endSubscription",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

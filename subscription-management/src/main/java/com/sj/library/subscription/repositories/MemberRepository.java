@@ -3,6 +3,7 @@ package com.sj.library.subscription.repositories;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 
 import com.sj.library.subscription.entities.Member;
@@ -14,6 +15,7 @@ import com.sj.library.subscription.entities.Member;
  *
  */
 @Repository
+@RepositoryRestResource(exported = false)
 public interface MemberRepository extends CrudRepository<Member, Integer> {
 	/**
 	 * Get list of all Member

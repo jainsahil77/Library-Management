@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +17,7 @@ import com.sj.library.subscription.entities.Subscription;
  *
  */
 @Repository
+@RepositoryRestResource(exported = false)
 public interface SubscriptionRepository extends CrudRepository<Subscription, Integer> {
 	/**
 	 * Get list of all subscription
